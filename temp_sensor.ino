@@ -1,6 +1,6 @@
 #include <SimpleDHT.h>
 
-int pinDHT11 = 2;
+int LED = 2;  // the pin where LED is
 int tempPin = A0; // the output pin of DHT11
 
 int temp;
@@ -20,6 +20,9 @@ void setup() {
 
   pinMode(fan, OUTPUT);
   digitalWrite(fan, LOW);
+  
+  pinMode(LED, OUTPUT);
+  
   Serial.begin(9600);
 }
 
@@ -33,6 +36,8 @@ void loop() {
     digitalWrite(fan, LOW);
   }
   else {
+    
+    digitalWrite(LED, HIGH);  // turn on LED
     digitalWrite(fan, HIGH);  // turn on fan
   }
 }
